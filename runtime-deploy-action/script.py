@@ -70,7 +70,6 @@ def run_command(command: List[str]) -> subprocess.Popen:
 
 
 def build_flags(inputs: dict) -> list:
-    print("***** runtime-deploy-action")
 
     docker_flags: dict = dict(
         FEATURES_LEVEL_LOG=inputs.get("features_level_log") or "info",
