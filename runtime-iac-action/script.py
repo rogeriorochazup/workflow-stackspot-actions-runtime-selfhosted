@@ -81,7 +81,7 @@ def build_flags(inputs: dict) -> list:
     for k, v in docker_flags.items():
         flags += ["-e", f"{k}={v}"]
 
-    for k, v in inputs.iteritems():
+    for k, v in inputs.items():
         if k.startswith('TF_VAR_'):
             print(f'*** {k}= {v}')
             flags += ["-e", f"{k}={v}"]
