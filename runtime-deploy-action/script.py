@@ -70,6 +70,7 @@ def run_command(command: List[str]) -> subprocess.Popen:
 
 
 def build_flags(inputs: dict) -> list:
+    print("***** runtime-deploy-action")
 
     docker_flags: dict = dict(
         FEATURES_LEVEL_LOG=inputs.get("features_level_log") or "info",
@@ -94,6 +95,11 @@ def build_flags(inputs: dict) -> list:
     flags = []
     for k, v in docker_flags.items():
         flags += ["-e", f"{k}={v}"]
+
+    for k, v in inputs.iteritems():
+        if k.startswith('TF_VAR_'):
+            print(f'*** {k}= {v}')
+            flags += ["-e", f"{k}={v}"]
 
     return flags
 
