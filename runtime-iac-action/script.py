@@ -63,7 +63,6 @@ def run_command(command: List[str]) -> subprocess.Popen:
 
 
 def build_flags(inputs: dict) -> list:
-    print("***** runtime-iac-action")
     docker_flags: dict = dict(
         FEATURES_LEVEL_LOG=inputs.get("features_level_log") or "info",
         REPOSITORY_NAME=inputs["repository_name"],
@@ -77,17 +76,12 @@ def build_flags(inputs: dict) -> list:
         AUTHENTICATE_URL=STK_IAM_DOMAIN,
         FEATURES_API_MANAGER=STK_RUNTIME_MANAGER_DOMAIN,
         TF_VAR_env=inputs["env"],
+        TF_VAR_aws_region=inputs["aws_region"],
+
     )
     flags = []
     for k, v in docker_flags.items():
-        print(f'*** {k}= {v}')
         flags += ["-e", f"{k}={v}"]
-
-#    for k, v in inputs.items():
-        print(f'*** {k}= {v}')
-#        if k.startswith('TF_VAR_'):
-#            print(f'***add-> {k}= {v}')
-#            flags += ["-e", f"{k}={v}"]
 
     return flags
 

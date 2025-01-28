@@ -92,16 +92,11 @@ def build_flags(inputs: dict) -> list:
         FEATURES_TEMPLATES_FILEPATH=FEATURES_TEMPLATES_FILEPATH,
         FEATURES_BASEPATH_TERRAFORM=FEATURES_BASEPATH_TERRAFORM,
         TF_VAR_env=inputs["env"],
+        TF_VAR_aws_region=inputs["aws_region"],
     )
     flags = []
     for k, v in docker_flags.items():
-        print(f'*** {k}= {v}')
         flags += ["-e", f"{k}={v}"]
-
-#    for k, v in inputs.items():
-#        if k.startswith('TF_VAR_'):
-#            print(f'*** {k}= {v}')
-#            flags += ["-e", f"{k}={v}"]
 
     return flags
 
