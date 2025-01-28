@@ -76,15 +76,18 @@ def build_flags(inputs: dict) -> list:
         AWS_REGION=inputs["aws_region"],
         AUTHENTICATE_URL=STK_IAM_DOMAIN,
         FEATURES_API_MANAGER=STK_RUNTIME_MANAGER_DOMAIN,
+        TF_VAR_env=inputs["env"],
     )
     flags = []
     for k, v in docker_flags.items():
+        print(f'*** {k}= {v}')
         flags += ["-e", f"{k}={v}"]
 
-    for k, v in inputs.items():
-        if k.startswith('TF_VAR_'):
-            print(f'*** {k}= {v}')
-            flags += ["-e", f"{k}={v}"]
+#    for k, v in inputs.items():
+        print(f'*** {k}= {v}')
+#        if k.startswith('TF_VAR_'):
+#            print(f'***add-> {k}= {v}')
+#            flags += ["-e", f"{k}={v}"]
 
     return flags
 
