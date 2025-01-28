@@ -75,7 +75,7 @@ def build_flags(inputs: dict) -> list:
         AWS_REGION=inputs["aws_region"],
         AUTHENTICATE_URL=STK_IAM_DOMAIN,
         FEATURES_API_MANAGER=STK_RUNTIME_MANAGER_DOMAIN,
-        TF_VAR_env=inputs["env"],
+        TF_VAR_env=inputs["short_environment"],
         TF_VAR_aws_region=inputs["aws_region"],
 
     )

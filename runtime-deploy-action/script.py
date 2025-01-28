@@ -91,7 +91,7 @@ def build_flags(inputs: dict) -> list:
         FEATURES_BASEPATH_EBS=FEATURES_BASEPATH_EBS,
         FEATURES_TEMPLATES_FILEPATH=FEATURES_TEMPLATES_FILEPATH,
         FEATURES_BASEPATH_TERRAFORM=FEATURES_BASEPATH_TERRAFORM,
-        TF_VAR_env=inputs["env"],
+        TF_VAR_env=inputs["short_environment"],
         TF_VAR_aws_region=inputs["aws_region"],
     )
     flags = []

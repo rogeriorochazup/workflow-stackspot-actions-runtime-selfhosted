@@ -72,8 +72,8 @@ spec:
       type: text
       required: false
 
-    - label: "short Env"
-      name: env
+    - label: "Short Environment"
+      name: short_environment
       type: text
       required: true
 
