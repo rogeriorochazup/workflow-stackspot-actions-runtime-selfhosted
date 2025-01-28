@@ -76,6 +76,11 @@ spec:
       name: tf_log_provider 
       type: text
       required: false
+
+    - label: "short Env"
+      name: env
+      type: text
+      required: true      
   
   python:
     workdir: .
