@@ -76,6 +76,8 @@ spec:
       name: short_environment
       type: text
       required: true
+  global-computed-inputs:
+    global_short_environment: "{{short_environment}}"
 
   python:
     workdir: .
