@@ -93,6 +93,11 @@ spec:
       name: run_id
       type: text
       required: true
+
+    - label: "Short Environment"
+      name: short_environment
+      type: text
+      required: true      
   
   python:
     workdir: .
