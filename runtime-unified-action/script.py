@@ -95,6 +95,8 @@ def build_flags(inputs: dict) -> list:
         TF_CLI_ARGS_apply=TF_PARALLELISM,
         TF_CLI_ARGS_plan=TF_PARALLELISM,
         TF_CLI_ARGS_destroy=TF_PARALLELISM,
+        TF_VAR_env=inputs["short_environment"],
+        TF_VAR_aws_region=inputs["aws_region"],        
     )
     flags = []
     for k, v in docker_flags.items():
